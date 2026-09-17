@@ -1,0 +1,42 @@
+package com.app.model;
+
+/**
+ * Data model for storing analysis metrics for a Java file/submission.
+ */
+public class MetricResult {
+    private String fileName;
+    private int linesOfCode;
+    private int classCount;
+    private int methodCount;
+    private boolean compiledSuccessfully;
+    private String executionLog;
+
+    public MetricResult(String fileName) {
+        this.fileName = fileName;
+        this.linesOfCode = 0;
+        this.classCount = 0;
+        this.methodCount = 0;
+        this.compiledSuccessfully = false;
+        this.executionLog = "";
+    }
+
+    public String getFileName() { return fileName; }
+    public int getLinesOfCode() { return linesOfCode; }
+    public void setLinesOfCode(int linesOfCode) { this.linesOfCode = linesOfCode; }
+    public int getClassCount() { return classCount; }
+    public void setClassCount(int classCount) { this.classCount = classCount; }
+    public int getMethodCount() { return methodCount; }
+    public void setMethodCount(int methodCount) { this.methodCount = methodCount; }
+    public boolean isCompiledSuccessfully() { return compiledSuccessfully; }
+    public void setCompiledSuccessfully(boolean compiledSuccessfully) { this.compiledSuccessfully = compiledSuccessfully; }
+    public String getExecutionLog() { return executionLog; }
+    public void setExecutionLog(String executionLog) { this.executionLog = executionLog; }
+
+    @Override
+    public String toString() {
+        return String.format(
+            "File: %s | LOC: %d | Classes: %d | Methods: %d | Compiled: %b",
+            fileName, linesOfCode, classCount, methodCount, compiledSuccessfully
+        );
+    }
+}
